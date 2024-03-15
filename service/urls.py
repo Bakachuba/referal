@@ -1,12 +1,13 @@
-from django.urls import path, include, re_path
+from django.urls import path, include
+from rest_framework import routers
 
-from service import views
+from service.views import CodeViewSet
 
-# from service.views import CodeViewSet
+router = routers.SimpleRouter()
+router.register(r'code', CodeViewSet)
 
 urlpatterns = [
-    # path('api/', CodeViewSet.as_view(), name='CodeViewSet'),
-
-    path('', views.index, name='index')
-
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
+
+urlpatterns += router.urls
