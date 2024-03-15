@@ -1,3 +1,19 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
-# Register your models here.
+from .models import *
+
+
+@admin.register(ReferralCode)
+class BookAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(Referral)
+class BookAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(UserProfile)
+class BookAdmin(ModelAdmin):
+    pass
